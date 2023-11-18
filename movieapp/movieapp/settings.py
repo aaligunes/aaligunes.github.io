@@ -31,10 +31,9 @@ SECRET_KEY = 'django-insecure-0emd5+es#2ewzpj(joeu_d!+s+p$7#3m3bl4w%esbu0*ihoujb
 DEBUG = True
 #DEBUG = getenv("IS_DEVELOPMENT",True)
 
-ALLOWED_HOSTS = [
-    #getenv("APP_HOST")
+ALLOWED_HOSTS = ['*']
+#getenv("APP_HOST")
     #'ratethemovie1-env.eba-eqry86b3.eu-north-1.elasticbeanstalk.com'
-]
 
 
 # Application definition
