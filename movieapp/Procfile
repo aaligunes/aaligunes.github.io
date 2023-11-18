@@ -1,1 +1,1 @@
-web: gunicorn MY-MOVİE-SİTE.wsgi --log-file -
+web: gunicorn MY-MOVİE-SİTE.wsgi:application --log-file -
