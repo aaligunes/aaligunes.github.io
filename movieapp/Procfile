@@ -1,1 +1,1 @@
-web: gunicorn movieapp.wsgi --log-file -
+web: gunicorn MY-MOVİE-SİTE.wsgi --log-file -
