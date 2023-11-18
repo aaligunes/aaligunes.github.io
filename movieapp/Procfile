@@ -1,1 +1,1 @@
-web: gunicorn cinecriticcircle.wsgi:application --log-file -
+web: gunicorn movieapp.wsgi:application --log-file -
