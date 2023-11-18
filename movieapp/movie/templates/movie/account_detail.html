@@ -1,0 +1,65 @@
+{% extends "base.html" %}
+
+{% load static %}
+
+{% block title %}Kullanıcı Detay{% endblock title %}
+
+
+{% block icerik %}
+<form method="POST">
+    {% csrf_token %}
+    {% if error %}
+                <div class = "alert alert-danger">
+                    {{error}}
+                </div>
+     {% endif %}
+    <div class="mb-3">
+        <label for="username" class="form-label baslik">Kullanıcı Adı</label>
+        <input type="text" class="form-control" name="username" value={{ user.username}} readonly>
+    </div>
+    <div class="mb-3">
+        <label for="email" class="form-label baslik">E-mail</label>
+        <input type="email" class="form-control" name="email" value={{ user.email }} readonly>
+    </div>
+    <div class="row mb-3">
+        <div class="col">
+            <label for="firstname" class="form-label baslik">Ad</label>
+            <input type="text" class="form-control" name="firstname" value={{user.first_name}}>
+        </div>
+        <div class="col">
+            <label for="lastname" class="form-label baslik">Soyad</label>
+            <input type="text" class="form-control" name="lastname" value={{ user.last_name}}>
+        </div>
+    </div>
+    <hr>
+    <div class="mb-3">
+        <label for="password" class="form-label baslik">Eski Şifre</label>
+        <input type="password" class="form-control" name="eski_password">
+    </div>
+    <div class="row mb-3" >
+        <div class="col">
+            <label for="password" class="form-label baslik">Yeni Şifre</label>
+            <input type="password" class="form-control" name="yeni_password">
+        </div>
+        <div class="col">
+            <label for="repassword" class="form-label baslik">Yeni Şifre Tekrar</label>
+            <input type="password" class="form-control" name="yeni_repassword_tekrar">
+        </div>
+    </div>
+    <input type="submit" value="Güncelle" class="btn btn-secondary">
+</form>
+
+
+
+
+{% endblock icerik %}
+
+
+
+{% block icerik2 %}
+{% include "partials/_account_navbar.html" %}
+
+{% endblock icerik2 %}
+
+
+

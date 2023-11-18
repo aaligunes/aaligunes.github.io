@@ -1,0 +1,14 @@
+{% load static %}
+{% if is_favori %}
+    <form method="post" action="{% url 'remove_favorite' movie_id %}">
+        {% csrf_token %}
+        <button class="btn btn-danger">favriden çıkar</button>
+    </form>
+{% else %}
+    <form method="post" action="{% url 'add_favorite' movie_id %}">
+        {% csrf_token %}
+        <button class="btn btn-primary">favoriye ekle</button>
+    </form>
+
+{% endif %}
+

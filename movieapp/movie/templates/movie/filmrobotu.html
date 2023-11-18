@@ -1,0 +1,199 @@
+
+{% extends "base.html" %}
+{% load static %}
+
+{% block icerik %}
+<form id="film-form" method ="POST" action="{% url 'filmrobotu' %}">
+  {% csrf_token %}
+  <div class="container">
+     <div class="row">
+            <div class="card text-white bg-dark mb-3" style="max-width: 1024px;">
+                  <div class="row align-items-center">
+                    <div class="col-md-4 d-flex justify-content-center">
+                      <img  src="{{rastgele_resim}}" class="img-fluid rounded-start" alt="...">
+                    </div>
+                    <div class="col-md-8" >
+                     <div class="card-body">
+                        <h5 class="card-title">Yapay Zeka Destekli Film Robotu</h5>
+                        <p class="card-text">3 adet kategori giriniz her kategoriye 1 ile 10 arasında puan veriniz yapay zeka aradığınız filmi bulacaktır</p>
+
+                          <div class="row">
+                            <div class="col-md-6">
+                              <h6>Kategori 1:</h6>
+                              <div class="dropdown">
+                                <select class="form-select" id="kategori1" name="kategori1" onchange="kategoriSecildi()">
+                                    <option value="">Lütfen Bir Kategori Seçiniz Kategori 1</option>
+                                    <option value="Aksiyon">Aksiyon</option>
+                                    <option value="Macera">Macera</option>
+                                    <option value="Dram">Dram</option>
+                                    <option value="komedi">komedi</option>
+                                    <option value="korku">korku</option>
+                                    <option value="fantastik">fantastik</option>
+                                    <option value="bilim kurgu">bilim kurgu</option>
+                                </select>
+                              </div>
+                            </div>
+                            <div class="col-md-6">
+                              <h6>Kategori 1 Puanı:</h6>
+
+                              <div class="dropdown">
+                                <select class="form-select" id="puan1" name="puan1" onchange="kategoriSecildi()">
+                                    <option value="Puansız">Lütfen Bir Puan Seçiniz Puan 1</option>
+                                    <option value="9">9</option>
+                                    <option value="8">8</option>
+                                    <option value="7">7  </option>
+                                    <option value="6">6</option>
+                                    <option value="5">5</option>
+                                    <option value="4">4  </option>
+                                    <option value="3">3</option>
+                                    <option value="2">2</option>
+                                    <option value="1">1  </option>
+                                </select>
+                              </div>
+                              
+                            </div>
+                          </div>
+
+                          <div class="row">
+                            <div class="col-md-6">
+                              <h6>Kategori 2: </h6>
+
+                              <div class="dropdown">
+                                <select class="form-select" id="kategori2" name="kategori2" onchange="kategoriSecildi()">
+                                  <option value="">Lütfen Bir Kategori Seçiniz Kategori 2</option>
+                                  <option value="Aksiyon">Aksiyon</option>
+                                  <option value="Macera">Macera</option>
+                                  <option value="Dram">Dram</option>
+                                  <option value="komedi">komedi</option>
+                                  <option value="korku">korku</option>
+                                  <option value="fantastik">fantastik</option>
+                                  <option value="bilim kurgu">bilim kurgu</option>
+                                </select>
+                              </div>
+                            </div>
+                            <div class="col-md-6">
+                              <h6>Kategori 2 Puanı:</h6>
+
+                              <div class="dropdown">
+                                <select class="form-select" id="puan2" name="puan2" onchange="kategoriSecildi()">
+                                  <option value="Puansız">Lütfen Bir Puan Seçiniz Puan 2</option>
+                                  <option value="9">9</option>
+                                  <option value="8">8</option>
+                                  <option value="7">7  </option>
+                                  <option value="6">6</option>
+                                  <option value="5">5</option>
+                                  <option value="4">4  </option>
+                                  <option value="3">3</option>
+                                  <option value="2">2</option>
+                                  <option value="1">1  </option>
+                                </select>
+                              </div>
+                              
+                            </div>
+                          </div>
+
+
+                          <div class="row">
+                            <div class="col-md-6">
+
+                                <h6>Kategori 3: </h6>
+
+                                <div class="dropdown">
+                                  <select class="form-select" id="kategori3" name="kategori3" onchange="kategoriSecildi()">
+                                    <option value="">Lütfen Bir Kategori Seçiniz Kategori 3</option>
+                                    <option value="Aksiyon">Aksiyon</option>
+                                    <option value="Macera">Macera</option>
+                                    <option value="Dram">Dram</option>
+                                    <option value="komedi">komedi</option>
+                                    <option value="korku">korku</option>
+                                    <option value="fantastik">fantastik</option>
+                                    <option value="bilim kurgu">bilim kurgu</option>
+                                  </select>
+                                </div>
+
+
+
+                            </div>
+                            <div class="col-md-6">
+
+                                <h6>Kategori 3 Puanı:</h6>
+
+                                <div class="dropdown">
+                                  <select class="form-select" id="puan3" name="puan3" onchange="kategoriSecildi()">
+                                    <option value="Puansız">Lütfen Bir Puan Seçiniz Puan 3</option>
+                                    <option value="9">9</option>
+                                    <option value="8">8</option>
+                                    <option value="7">7  </option>
+                                    <option value="6">6</option>
+                                    <option value="5">5</option>
+                                    <option value="4">4  </option>
+                                    <option value="3">3</option>
+                                    <option value="2">2</option>
+                                    <option value="1">1  </option>
+                                  </select>
+                                </div>
+
+
+                              
+                            </div>
+                          </div>
+
+                          <hr>
+
+
+
+                            
+                        <input class="btn btn-secondary" type="submit" value="Gönder">
+
+                      </div>
+                    </div>
+                  </div>
+            </div>
+            
+      </div>
+  </div>
+</form>
+
+
+
+<h1 class="baslik">{{ cevap }}</h1>
+
+<div class = "container">
+  <div class = "row md-3">
+    
+    <hr>
+    {% if cevap %}
+    <p class="baslik">Aranan Film Kriterleri</p>
+      {% if kategori1 %}
+      <p class="baslik">{{kategori1}}={{puan1}}</p>
+      {% endif %}
+      {% if kategori2 %}
+      <p class="baslik">{{kategori2}}={{puan2}}</p>
+      {% endif %}
+      {% if kategori3 %}
+      <p class="baslik">{{kategori3}}={{puan3}}</p>
+      {% endif %}
+      {% for movie in aranan_film %}
+        {% if forloop.counter <= 1 %}
+          <div class="card text-white bg-dark m-2" style="width: 20rem; text-aling:center">
+              <img src="{{movie.backdrop_path}}" alt="">
+              <div class="card-body ">
+                <h5 class="card-title">{{ movie.title|slice:"0:20" }}</h5>
+                <p class="card-text">{{ movie.overview|striptags|slice:"0:50"}}</p>
+                <a href="{% url 'film_detail' movie.id %}" class="btn btn-secondary">Filme Git</a>
+              </div>
+          </div> 
+        {% endif %}
+      {% endfor %}
+    {% else %}
+    <h1 class="baslik">Lütfen bilgileri eksiksiz giriniz</h1>   
+    {% endif %}
+  </div>
+</div>
+{% endblock icerik %}
+
+{% block icerik2 %} 
+  {% include 'partials/_newmovies.html' %}
+{% endblock icerik2 %}
+
+

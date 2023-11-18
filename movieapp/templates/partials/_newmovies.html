@@ -1,0 +1,30 @@
+
+
+{% load static %}
+
+<div class="list-group">
+    <a href="#" class="list-group-item  list-group-item-action list-group-item-dark active" aria-current="true">
+      Gelecek Filmler
+    </a>
+    {% for movie in up_coming_movies  %}
+     {% if forloop.counter <= 5 %}
+        <a href="{% url 'film_detail' movie_id=movie.movie_id %}" class="list-group-item  list-group-item-action list-group-item-dark active">
+            <div class="card text-white bg-dark mb-3" style="max-width: 540px;">
+                <div class="row g-0">
+                  <div class="col-md-4">
+                    <img src="{{movie.backdrop_path}}" class="img-fluid rounded-start"  alt="...">
+                  </div>
+                  <div class="col-md-8">
+                    <div class="card-body">
+                      <h5 class="card-title">{{ movie.title }}</h5>
+                      
+                      <p class="card-text">{{ movie.overview|striptags|slice:"0:50"}}...</p>
+                    
+                    </div>
+                  </div>
+                </div>
+              </div>
+        </a>
+      {% endif %}
+    {% endfor %}
+  </div>

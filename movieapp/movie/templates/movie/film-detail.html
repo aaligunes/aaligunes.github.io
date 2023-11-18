@@ -1,0 +1,46 @@
+{% extends "base.html" %}
+{% block icerik %}
+
+
+<div class="card text-white bg-dark mb-3" style="max-width: 1080px;">
+    <div class="row g-0">
+      <div class="col-md-4">
+        <img src="{{film_detail.backdrop_path}}" class="img-fluid rounded-start" alt="...">
+      </div>
+      <div class="col-md-8">
+        <div class="card-body">
+          <h5 class="card-title">{{film_detail.title}}</h5>
+          <hr>
+          <p class="card-text">{{film_detail.overview}}</p>
+          <hr>
+          <p class="card-text">Popülerlik: {{film_detail.popularity}}</p>
+          <p class="card-text">Yayınlanma Tarihi: {{film_detail.release_date}}</p>
+          <p class="card-text">Bütçe: {{film_detail.budget|floatformat}}</p>
+          <p class="card-text">Elde Edilen Gelir: {{film_detail.revenue}}</p>
+          <p class="card-text">Üye Puan Ortalaması: {{film_detail.vote_average}}</p>
+          {% include "partials/_favori.html" %}          
+        </div>
+      </div>
+    </div>
+    <hr>
+    <div class="container">
+      <div style="text-align: center;">
+        <iframe id="iframe" width="90%" height="400px" src="https://www.youtube.com/embed/{{film_video}}" frameborder="0" allowfullscreen></iframe>
+      </div>
+    </div>
+  <hr>
+
+</div>
+<hr>
+
+
+{% include "partials/_comment.html" %}
+
+
+
+{% endblock icerik %}
+
+
+{% block icerik2 %}
+{% include 'partials/_newmovies.html' %}
+{% endblock icerik2 %}

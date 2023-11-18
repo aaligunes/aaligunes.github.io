@@ -1,0 +1,55 @@
+{% extends "base.html" %}
+
+{% load static %}
+
+{% block icerik %}
+<div class = "container">
+  <div class="card m-3" style="width: 18rem;">
+      <img src="{% static 'movie/img/robot.png' %}" class="card-img-top" alt="...">
+      <div class="card-body">
+        <h5 class="card-title">Film Robotu</h5>
+        <p class="card-text">
+          <div class="card mb-3">
+              <div class="row">
+                  <div class="col">
+                    <div class="btn-group">
+                      <button type="button" class="btn btn-secondary dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false">
+                        Action
+                      </button>
+                      <ul class="dropdown-menu">
+                        <li><a class="dropdown-item" href="#">Action</a></li>
+                        <li><a class="dropdown-item" href="#">Another action</a></li>
+                        <li><a class="dropdown-item" href="#">Something else here</a></li>
+                        <li><hr class="dropdown-divider"></li>
+                        <li><a class="dropdown-item" href="#">Separated link</a></li>
+                      </ul>
+                    </div>
+                  </div>
+                  <div class="col">
+                      <div class="card-body">
+                          <h5 class="card-title">
+                              
+                          </h5>
+                          
+                      </div>
+                  </div>
+          
+              </div>
+          </div>
+        </p>
+        <a href="#" class="btn btn-primary">Go somewhere</a>
+      </div>
+    </div>
+</div>
+{% include 'partials/_newmovies.html' %}
+
+{% endblock icerik %}
+
+{% block icerik2 %}
+
+{% include 'partials/_newmovies.html' %}
+
+
+{% endblock icerik2 %}
+
+

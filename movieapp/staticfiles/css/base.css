@@ -1,0 +1,19 @@
+body{
+    background-color: rgb(53, 49, 49);
+}
+
+
+
+.baslik { 
+    color:  rgb(255, 255, 255);
+    text-align: center;
+    text-decoration: underline;
+
+}
+
+.form-select {
+    background-color: rgb(64, 72, 75);
+    color: rgb(255, 255, 255);
+
+}
+

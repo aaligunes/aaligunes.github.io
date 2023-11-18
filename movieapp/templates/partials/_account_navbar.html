@@ -1,0 +1,11 @@
+{% load static %}
+
+<div class="list-group">
+    <a href="#" class="list-group-item list-group-item-action active list-group-item-dark" aria-current="true">Hesap</a>
+    <a href="{% url "account_detail" %}" class="list-group-item list-group-item-action list-group-item-secondary">Kullanıcı Ayarları</a>
+    <a href="{% url 'account_favori_film' %}" class="list-group-item list-group-item-action list-group-item-dark">Favori Filmler</a>
+    <a href="{% url 'account_yorum_yapilan_filmler' %}" class="list-group-item list-group-item-action list-group-item-dark">Yorum Yapılan Filmler</a>
+
+
+    
+  </div>

@@ -1,0 +1,24 @@
+{% extends "base.html" %}
+
+{% block icerik %}
+
+<div class = "container">
+    <div class = "row md-3">
+      <h1 class="baslik">Bulunan Sonuçlar</h1>
+      <hr>
+          {% for movie in aranan_film %}
+          <div class="card text-white bg-dark m-1" id="anasayfa_card">
+              <img src="{{movie.backdrop_path}}" alt="">
+              <div class="card-body ">
+                <h5 class="card-title">{{ movie.title|slice:"0:20" }}</h5>
+                <p class="card-text">{{ movie.overview|striptags|slice:"0:50"}}</p>
+                <a href="{% url 'film_detail' movie.id %}" class="btn btn-secondary">Filme Git</a>
+              </div>
+          </div>  
+          {% endfor %}
+    </div>
+</div>
+
+
+
+{% endblock icerik %}

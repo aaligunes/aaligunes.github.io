@@ -1,0 +1,53 @@
+{% extends "base.html" %}
+{% load static %}
+
+
+
+{% block title %}HOME{% endblock title %}
+
+{% block icerik %}
+<div class="container">
+    {% include "partials/_carousel.html" %}
+    <hr>
+</div>
+<div class = "container">
+    <div class = "row md-3">   
+      <h1 class="baslik">Popüler Filmler</h1>
+      <hr>
+      
+          {% for movie in populer_movies %}
+          
+            <div class="card text-white bg-dark m-1"  id="anasayfa_card" >
+                <img src="{{movie.backdrop_path}}" alt="">
+                <div class="card-body ">
+                  <h5 class="card-title">{{ movie.title|slice:"0:20" }}</h5>
+                  <p class="card-text">{{ movie.overview|striptags|slice:"0:50"}}</p>
+                  <a href="{% url 'film_detail' movie.movie_id %}" class="btn btn-secondary">Filme Git</a>
+                </div>
+            </div>  
+          
+          {% endfor %}
+        
+   
+        
+    </div>
+</div>
+<hr>
+
+<nav aria-label="Page navigation example">
+  <ul class="pagination justify-content-center" >
+    
+    {% for sayfa_numarasi in sayfa_numaralari %}
+        <li class="page-item" ><a class="page-link" href="{% url 'home' sayfa_numarasi=sayfa_numarasi %}">{{sayfa_numarasi}}</a></li>
+    {% endfor %}
+    
+   
+  </ul>
+</nav>
+{% endblock icerik %}
+{% block icerik2 %}
+
+    {% include 'partials/_newmovies.html' %}
+    
+{% endblock icerik2 %}
+

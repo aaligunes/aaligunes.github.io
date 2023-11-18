@@ -1,0 +1,34 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block title %}{{ kategori_ismi }}{% endblock title %}
+
+{% block icerik %}
+
+<div class = "container">
+    <h1 class="baslik">{{ kategori_ismi }}</h1>
+    <hr>
+    <div class = "row md-3"> 
+{% for film_detay in kategori_detay %}
+
+        <div class="card text-white bg-dark m-1" id="anasayfa_card">
+            <img src="{{film_detay.backdrop_path}}" alt="">
+            <div class="card-body ">
+            <h5 class="card-title">{{ film_detay.title|slice:"0:20" }}</h5>
+            <p class="card-text">{{ film_detay.overview|striptags|slice:"0:50"}}</p>
+            <a href="{% url 'film_detail' film_detay.film_id %}" class="btn btn-secondary">Filme Git</a>
+            </div>
+        </div>  
+{% endfor %}
+
+  </div>
+</div>  
+
+
+{% endblock icerik %}
+
+{% block icerik2 %}
+{% include "partials/_newmovies.html" %}
+{% endblock icerik2 %}
+
+

@@ -1,0 +1,46 @@
+{% extends "base.html" %}
+{% load static %}
+{% block icerik %}
+
+<div class="container">
+    <div class="row md-3">
+    {% for detay in aranan_filmler %}
+
+    <div class="card text-white bg-dark m-1" id="account_yorumlanan_filmler">
+        <div class="row align-items-center">
+
+            <div class="col-md-4 d-flex justify-content-center">
+                <img src="{{detay.backdrop_path}}" class="img-fluid rounded-start" alt="...">
+            </div>
+            <div class="col-md-8">
+                <div class="card-body">
+                <h5 class="card-title">Film: {{ detay.title|slice:"0:20" }}</h5>
+                <p class="card-text">Özet: {{ detay.overview|striptags|slice:"0:50"}}...</p>
+
+                        
+                <p class="card-text">Yorum: {{ detay.yorum|striptags|slice:"0:50"}}...</p>
+                        
+                <a href="{% url 'film_detail' detay.movie_id %}" class="btn btn-secondary">Filme Git</a>
+                
+                </div>
+            </div>
+
+        </div>
+    </div>
+    {% endfor %}
+</div>
+
+
+</div>
+
+
+
+
+
+{% endblock icerik %}
+
+{% block icerik2 %}
+{% include "partials/_account_navbar.html" %}
+
+{% endblock icerik2 %}
+

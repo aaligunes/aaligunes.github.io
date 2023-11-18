@@ -1,0 +1,61 @@
+{% load static %}
+<form method = "POST">
+    {% csrf_token %}
+        {% if error %}
+        <div class = "alert alert-danger">
+            {{error}}
+        </div>
+         {% endif %}
+
+
+    <div class="mb-3">
+        <label for="yorum_baslıgı" class="form-label baslik">Yorum Başlığı</label>
+        <input type="text" class="form-control" name = "yorum_basligi">
+    </div>
+    <div class="mb-3">
+        <label for="yorum" class="form-label baslik">Yorum</label>
+        <textarea class="form-control" name = "yorum" rows="3"></textarea>
+    </div>
+
+    
+
+
+    {% if user.is_authenticated %}
+        <input type="submit" value="Yorum Yap" class="btn btn-primary">
+    {% else %}
+        <input type="submit" value="Yorum Yap" class="btn btn-primary" disabled>
+    {% endif %}
+    
+</form>
+<hr>
+<h1 class="baslik">Yapılan Yorumlar</h1>
+{% if user.is_authenticated %}
+
+    {% for yorum in yorumlar %}
+            {% if movie_id == yorum.yorum_yapilan_film_id %}
+            <div class="card text-white bg-dark mb-3" style="">
+               
+                <div class="card-body">
+                <h6 class="card-title">Yorum Başlığı: {{yorum.yorum_basligi}}</h6>
+                <hr>
+                <h5 class="card-text">Yorum: {{yorum.yorum}}</h5>
+                </div>
+            </div>
+            {% endif %}
+    {% endfor %}
+{% else %}
+    <hr>
+    <h5 class="baslik">Yorumları görmek için lütfen giriş yapınız.</h5>
+    <div style="text-align: center;">
+
+        <a href="{% url 'login'  %}" class="btn btn-primary">Giriş Yap</a>
+    </div>
+    <hr>
+
+{% endif %}
+
+
+
+
+
+
